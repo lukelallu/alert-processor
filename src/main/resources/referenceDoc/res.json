@@ -1,0 +1,26 @@
+[
+  {
+    "accountNo": "000000000001111",
+    "entitlements": {
+      "wireReporting": "EXPANDED"
+    }
+  },
+  {
+    "accountNo": "061000000002222",
+    "entitlements": {
+      "wireReporting": "EXPANDED_REMIT"
+    }
+  },
+  {
+    "accountNo": "000000000003333",
+    "entitlements": {
+      "wireReporting": "STANDARD_DETAILS"
+    }
+  },
+  {
+    "accountNo": "000000000002222",
+    "entitlements": {
+      "wireReporting": "SUMMARY_ONLY"
+    }
+  }
+]

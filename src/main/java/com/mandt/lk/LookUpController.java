@@ -9,6 +9,7 @@ import com.mandt.lk.util.Utility;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.ApiOperation;
 
@@ -17,6 +18,13 @@ import io.swagger.annotations.ApiOperation;
 @Api(value="/eligibility",description="eligibility Look Up",produces ="application/json")
 @RequestMapping(value = "/eligibility")
 public class LookUpController {
+
+    public void setUtility(Utility utility) {
+        this.utility = utility;
+    }
+
+    @Autowired
+    private Utility utility;
 
     /**
      *
@@ -38,7 +46,7 @@ public class LookUpController {
         ArrayList<LookUpResponse> response = new ArrayList<>();
         for (String id:accounts) {
             validate(id);
-            response.add( new LookUpResponse(id) );
+            response.add( new LookUpResponse(utility, id) );
         }
 
         return response;
@@ -50,8 +58,8 @@ public class LookUpController {
      * @throws Exception
      */
     private void validate(String id) throws Exception {
-        if(!Utility.validate(id).equals(Utility.TRUE)){
-            throw new Exception(Utility.validate(id));
+        if(!utility.validate(id).equals(utility.TRUE)){
+            throw new Exception(utility.validate(id));
         }
     }
 }

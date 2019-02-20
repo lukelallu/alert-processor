@@ -3,13 +3,13 @@ package com.mandt.lk.model;
 import com.mandt.lk.util.Utility;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.Size;
 import java.io.IOException;
 
 @ApiModel(description="All details about the student. ")
 public class LookUpResponse {
-
 
     public String getAccountNo() {
         return accountNo;
@@ -45,10 +45,10 @@ public class LookUpResponse {
      * @param id
      * @throws IOException
      */
-    public LookUpResponse(String id) throws IOException {
+    public LookUpResponse(Utility utility,String id) throws IOException {
         this.accountNo = id;
         //How many records....
-        this.entitlements = new Entitlement ( getEligibility(accountNo) );
+        this.entitlements = new Entitlement ( getEligibility(utility, accountNo) );
     }
 
     /**
@@ -57,10 +57,10 @@ public class LookUpResponse {
      * @return
      * @throws IOException
      */
-    private String getEligibility(String accountNo) throws IOException {
+    private String getEligibility(Utility utility, String accountNo) throws IOException {
 
         String eligibility;
-        switch (Utility.getEligibilityFromMiniFile(accountNo)) {
+        switch (utility.getEligibilityFromMiniFile(accountNo)) {
             case "Y":
                 eligibility = ELIGIBILITY.EXPANDED.getValue();
                 break;

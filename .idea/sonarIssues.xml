@@ -8,6 +8,46 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/AlertEventRequest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/src/main/java/io/swagger/Swagger2SpringBoot.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/src/main/java/io/swagger/api/SendAlertEventApiController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/src/main/java/io/swagger/model/AlertRequestItem.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/src/main/java/io/swagger/model/ItemStatus.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/src/main/java/io/swagger/model/SendAlertEventPOSTRequest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../EMH/alert-processor/src/main/resources/alerts.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../ZC/poc/sample-spring-microservices-new/config-service/src/main/resources/application.properties">
           <value>
             <set />
@@ -319,6 +359,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/loanPayload/loanBalanceResponse.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/mini/wiremini.txt">
           <value>
             <set />
           </value>

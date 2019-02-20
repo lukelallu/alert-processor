@@ -1,16 +1,49 @@
 package com.mandt.lk.util;
 
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
+@Component
 public class Utility {
 
-    private static String path = "./mini/wiremini.txt";
-    private static ClassLoader classLoader = Utility.class.getClassLoader();
-    private static File file = new File(classLoader.getResource(path).getFile());
-    public static String TRUE = "true";
-    public static String SPACE = " ";
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Utility.class);
+
+    public String getPath1() {
+        return path1;
+    }
+
+    public void setPath1(String path1) {
+        this.path1 = path1;
+    }
+
+
+    //1.2.3.4
+    @Value("${file.url}")
+    private String path1;
+    private ClassLoader classLoader = Utility.class.getClassLoader();
+    private File file ;
+    @PostConstruct
+    public void doLog() {
+        file = new File(classLoader.getResource(path1).getFile());
+        logger.info("Info message in Utility ");
+    }
+
+    public String TRUE = "true";
+    public String SPACE = " ";
 
     /**
      *
@@ -18,7 +51,7 @@ public class Utility {
      * @return
      * @throws IOException
      */
-    public static String getEligibilityFromMiniFile(String accountNo) throws IOException {
+    public String getEligibilityFromMiniFile(String accountNo) throws IOException {
         Scanner sc = null;
         try {
             sc = new Scanner(file, "UTF-8");
@@ -49,7 +82,8 @@ public class Utility {
      * @param id
      * @return
      */
-    public static String validate(String id){
+    public String validate(String id){
+        System.out.println(path1);
         if (id == null) {
             return "Account can not be null";
         }
@@ -70,7 +104,7 @@ public class Utility {
      * @param strNum
      * @return
      */
-    public static boolean isNum(String strNum) {
+    public  boolean isNum(String strNum) {
         boolean ret = true;
         try {
 
@@ -80,5 +114,13 @@ public class Utility {
             ret = false;
         }
         return ret;
+    }
+
+
+
+    //To resolve ${} in @Value
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
+        return new PropertySourcesPlaceholderConfigurer();
     }
 }

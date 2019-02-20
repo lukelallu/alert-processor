@@ -32,7 +32,7 @@ public class LookUpController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/lookUp", method = RequestMethod.GET,headers="Accept=application/json")
+    @RequestMapping(value = "/wire", method = RequestMethod.GET,headers="Accept=application/json")
     @ResponseBody
 
     @ApiOperation(value="get Eligibility",response=LookUpResponse.class)

@@ -10,7 +10,7 @@ public enum ELIGIBILITY {
     ;
 
     private String value;
-    private ELIGIBILITY(final String value) {
+    ELIGIBILITY(final String value) {
         this.value = value;
     }
 
